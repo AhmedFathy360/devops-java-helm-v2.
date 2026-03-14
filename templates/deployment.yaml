@@ -58,10 +58,17 @@ spec:
           {{- end }}
           {{- with .Values.volumeMounts }}
           volumeMounts:
+            - name: data-volume
+              mountPath: {{ .Values.persistence.mountPath }}
             {{- toYaml . | nindent 12 }}
           {{- end }}
       {{- with .Values.volumes }}
+      {{- if .Values.persistence.enabled }}
       volumes:
+          - name: data-volume
+            persistentVolumeClaim:
+              claimName: {{ include "helm-app-chart.fullname" . }}-pvc
+          {{- toYaml . | nindent 12 }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
       {{- with .Values.nodeSelector }}
