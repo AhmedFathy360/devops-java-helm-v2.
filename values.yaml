@@ -5,7 +5,7 @@ replicaCount: 2
 image:
   repository: perdita997/devops-java-app-v2
   pullPolicy: IfNotPresent
-  tag: ""   # Set dynamically by CI/CD pipeline
+  tag: ""
 
 imagePullSecrets: []
 
