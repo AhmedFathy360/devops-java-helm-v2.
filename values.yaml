@@ -5,7 +5,7 @@ replicaCount: 2
 image:
   repository: perdita997/devops-java-app-v2
   pullPolicy: IfNotPresent
-  tag: "71cfa38"
+  tag: "a1f259e"
 
 imagePullSecrets: []
 
